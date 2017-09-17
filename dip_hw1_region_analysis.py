@@ -10,6 +10,7 @@ __version__ = "1.0.0"
 import cv2
 import sys
 from datetime import datetime
+import matplotlib
 import matplotlib.pyplot as plt
 
 from region_analysis import binary_image as bi
@@ -52,6 +53,7 @@ def main():
     outputDir = 'output/cellct/'
 
     #Saving histogram to output directory
+    matplotlib.use('Agg')
     hist_fig = plt.plot(hist)
     plt.savefig(outputDir+"hist.png")
 
