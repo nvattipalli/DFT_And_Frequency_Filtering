@@ -1,6 +1,7 @@
 """dip_hw1.py: Starter file to run howework 1"""
 
-#Example Usage: ./dip_hw1_resize imagename.jpg (1.5, 1.5)
+#Example Usage: ./dip_hw1_resize -i imagename.jpg -fx 1.5 -fy = 1.5 -m nearest_neighbor
+#Example Usage: ./dip_hw1_resize -i imagename.jpg -fx 1.5 -fy = 1.5 -m bilinear
 
 __author__      = "Pranav Mantini"
 __email__ = "pmantini@uh.edu"
@@ -30,8 +31,10 @@ def main():
 
     parser.add_argument("-i", "--image", dest="image",
                         help="specify the name of the image", metavar="IMAGE")
-    parser.add_argument("-r", "--resize", dest="resize",
-                        help="specify scale size (fx, fy)", metavar="RESAMPLE SIZE")
+    parser.add_argument("-fx", "--resize_x", dest="resize_x",
+                        help="specify scale size (fx)", metavar="RESAMPLE SIZE")
+    parser.add_argument("-fy", "--resize_y", dest="resize_y",
+                        help="specify scale size (fy)", metavar="RESAMPLE SIZE")
     parser.add_argument("-m", "--interpolation", dest="interpolate",
                         help="specify the interpolation method (nearest_neighbor or bilinear)", metavar="INTERPOLATION METHOD")
 
@@ -45,26 +48,23 @@ def main():
     else:
         image_name = args.image.split(".")[0]
         input_image = cv2.imread(args.image, 0)
-        if input_image:
-            print("Failed to load image")
+
 
     #Check resize scale parametes
-    if args.resize is None:
-        print("Resize scale not specified using default (1.5, 1.5)")
+    if args.resize_x is None:
+        print("Resize scale fx not specified using default (1.5)")
         print("use the -h option to see usage information")
-        scale = (1.5, 1.5)
+        fx = 1.5
     else:
-        if len(args.resize) != 2:
-            print("Invalid Resize scale, using default=(1.5, 1.5)")
-            print("use the -h option to see usage information")
-            scale = (1.5, 1.5)
-        else:
-            try:
-                scale = (float(args.resize[0]), float(args.resize[1]))
-            except ValueError:
-                print("Invalid Resize scale, using default=(1.5, 1.5)")
-                print("use the -h option to see usage information")
-                scale = (1.5, 1.5)
+        fx = args.resize_x
+
+    if args.resize_y is None:
+        print("Resize scale fy not specified using default (1.5)")
+        print("use the -h option to see usage information")
+        fy = 1.5
+    else:
+        fy = args.resize_y
+
 
     #Check interpolate method argument
     if args.interpolate is None:
@@ -82,7 +82,7 @@ def main():
 
 
     resample_obj = rs.resample()
-    resampled_image = resample_obj.resize(input_image, fx = scale[0], fy = scale[1], interpolation=interpolation)
+    resampled_image = resample_obj.resize(input_image, fx = fx, fy = fy, interpolation=interpolation)
 
     #Write output file
     output_image_name = image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
