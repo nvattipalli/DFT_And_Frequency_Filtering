@@ -49,7 +49,7 @@ def main():
 
 
     bin_img = bi.binary_image()
-    hist = bin_img.compute_histogram(bin_img)
+    hist = bin_img.compute_histogram(input_image)
 
     outputDir = 'output/cellct/'
 
