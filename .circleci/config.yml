@@ -44,9 +44,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            mkdir $CIRCLE_ARTIFACTS
-            cp output/* $CIRCLE_ARTIFACTS
             python dip_hw1_resize.py -i cell2.jpg -fx 0.5 -fy 0.5 -m bilinear
+            mv -f output/* cp output/* /home/circleci/repo/test-reports
 
       - store_artifacts:
           path: test-reports
