@@ -12,6 +12,7 @@ import sys
 from datetime import datetime
 import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 
 from region_analysis import binary_image as bi
 from region_analysis import cell_counting as cc
