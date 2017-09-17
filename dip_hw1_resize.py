@@ -49,7 +49,6 @@ def main():
         image_name = args.image.split(".")[0]
         input_image = cv2.imread(args.image, 0)
 
-
     #Check resize scale parametes
     if args.resize_x is None:
         print("Resize scale fx not specified using default (1.5)")
@@ -82,11 +81,14 @@ def main():
 
 
     resample_obj = rs.resample()
-    resampled_image = resample_obj.resize(input_image, fx = fx, fy = fy, interpolation=interpolation)
+    resampled_image = resample_obj.resize(input_image, fx=fx, fy=fy, interpolation=interpolation)
 
     #Write output file
-    output_image_name = image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
-    cv2.imwrite(output_image_name, resampled_image )
+    outputDir = 'output/'
+
+    output_image_name = outputDir+image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
+    print(output_image_name)
+    cv2.imwrite(output_image_name, resampled_image)
 
 
 if __name__ == "__main__":
