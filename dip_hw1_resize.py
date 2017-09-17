@@ -84,7 +84,7 @@ def main():
     resampled_image = resample_obj.resize(input_image, fx=fx, fy=fy, interpolation=interpolation)
 
     #Write output file
-    outputDir = 'output/'
+    outputDir = 'output/resize/'
 
     output_image_name = outputDir+image_name+interpolation+datetime.now().strftime("%m%d-%H%M%S")+".jpg"
     print(output_image_name)

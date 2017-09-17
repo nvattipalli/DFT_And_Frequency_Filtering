@@ -21,6 +21,7 @@ class binary_image:
 
         threshold = int(255/2)
 
+
         return threshold
 
     def binarize(self, image):

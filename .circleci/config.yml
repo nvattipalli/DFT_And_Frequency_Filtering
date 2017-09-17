@@ -44,6 +44,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            python dip_hw1_resize.py -i cell2.jpg -fx 0.75 -fy 0.75 -m nearest_neighbor
             python dip_hw1_resize.py -i cell2.jpg -fx 0.5 -fy 0.5 -m bilinear
             mkdir /home/circleci/repo/test-reports
             mv -f \output/ /home/circleci/repo/test-reports

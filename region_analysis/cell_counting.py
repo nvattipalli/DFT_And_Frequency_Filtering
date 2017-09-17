@@ -8,22 +8,22 @@ class cell_counting:
 
         regions = dict()
 
-
         return regions
 
-    def compute_cell_area(self, region):
-        """Compute cell statistics area
+    def compute_statistics(self, region):
+        """Compute cell statistics area and location
         takes as input
         region: a list of pixels in a region
         returns: area"""
 
         return 0
 
-
-    def compute_cell_location(self, region):
-        """Compute cell statistics location
+    def mark_regions_image(self, image, stats):
+        """Creates a new image with computed stats
         takes as input
-        region: a list of pixels in a region
-        returns: location"""
+        image: a list of pixels in a region
+        stats: stats regarding location and area
+        returns: image marked with center and area"""
 
-        return 0
+        return image
+
