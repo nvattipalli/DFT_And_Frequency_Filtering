@@ -31,12 +31,18 @@ Due: 10/03/17
  c. (5 Pts) Ignore cells smaller than 15 pixels in area and generate a report of the remaining cells (Cell Number, Area, Location). 
   - compute_statistics: write your code for computing the statistics of each object/region, i.e area and location(centroid) here.
   Print out the statistics to stdout. region number, area and centroid for each region. 
-  - mark_regions_image: write your code to create a final cell labeled image. The final image should include an astrix representing the centroid of each cell and two numbers, one representing its Cell Number and another its area.
+  - mark_regions_image: write your code to create a final cell labeled image. The final image should include an astrix representing the centroid of each cell and two numbers, one representing its Cell Number and another its area. Please see sample output below.\
+  
+  ![Alt text](results.png?raw=true "Sample output")
+  
   
   - Usage example: ./dip_hw1_region_analysis.py -i image-name
     - image-name: name of the image    
   - Please make sure your code runs when you run the above command from prompt
   
+Two images are provided for testing: cells.png and cell2.jpg
+
+
   
 PS. Files not to be changed: requirements.txt and .circleci directory
 If you do not like the structure, you are welcome to change the over all code. 
