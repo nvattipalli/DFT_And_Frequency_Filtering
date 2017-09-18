@@ -11,8 +11,8 @@ import cv2
 import sys
 from datetime import datetime
 import matplotlib
-import matplotlib.pyplot as plt
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 from region_analysis import binary_image as bi
 from region_analysis import cell_counting as cc
@@ -49,12 +49,11 @@ def main():
 
 
     bin_img = bi.binary_image()
-    hist = bin_img.compute_histogram(bin_img)
+    hist = bin_img.compute_histogram(input_image)
 
     outputDir = 'output/cellct/'
 
-    #Saving histogram to output directory
-    matplotlib.use('Agg')
+    #Saving histogram to output directory    
     hist_fig = plt.plot(hist)
     plt.savefig(outputDir+"hist.png")
 
