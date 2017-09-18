@@ -33,7 +33,7 @@ Due: 10/03/17
   Print out the statistics to stdout. region number, area and centroid for each region. 
   - mark_regions_image: write your code to create a final cell labeled image. The final image should include an astrix representing the centroid of each cell and two numbers, one representing its Cell Number and another its area. Please see sample output below.\
   
-  ![Alt text](results.png?raw=true "Sample output")
+  ![Alt text](result.png?raw=true "Sample output")
   
   
   - Usage example: ./dip_hw1_region_analysis.py -i image-name
