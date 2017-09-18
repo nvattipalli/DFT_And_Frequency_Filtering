@@ -16,6 +16,12 @@ class cell_counting:
         region: a list of pixels in a region
         returns: area"""
 
+
+
+        # Please print your region statistics to stdout
+        # <region number>: <location or center>, <area>
+        # print(stats)
+
         return 0
 
     def mark_regions_image(self, image, stats):

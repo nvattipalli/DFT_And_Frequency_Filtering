@@ -72,10 +72,6 @@ def main():
     regions = cell_count_obj.blob_coloring(binary_img)
     stats = cell_count_obj.compute_statistics(regions)
 
-    #Please print your region statistics to stdout
-    #<region number>: <location or center>, <area>
-    #print(stats)
-
 
     cell_stats_img = cell_count_obj.mark_regions_image(binary_img, stats)
     output_image_name = outputDir + "cell_stats_" + datetime.now().strftime("%m%d-%H%M%S") + ".jpg"
