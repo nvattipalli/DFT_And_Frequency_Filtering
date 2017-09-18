@@ -10,7 +10,7 @@ Due: 10/03/17
   - Do not edit the function "resize"
   - resize/interpolate.py: Write code for linear and bilinear interpolation in there respective function definitions, you are welcome to write new functions and call them from these functions
   - This part of the assignment can be run using dip_hw1_resize.py
-  - Usage example: ./dip_hw1_resize.py -i <image-name> -fx <scalex> -fy <scaley> -m <method>
+  - Usage example: ./dip_hw1_resize.py -i image-name -fx scalex -fy scaley -m method
     - image-name: name of the image
     - scalex, scaley: scale to resize the image (eg. fx 0.5, fy 0.5 to make it half the original size)
     - method: "nearest_neightbor" or "bilinear" 
@@ -26,7 +26,15 @@ b. (8 pts.) Write a program to binarize a gray-level image based on the assumpti
   - binarize: write your code to threshold the input image to create a binary image here. This function should return a binary image which will automatically be saved in output folder
   
   
-c. (7 Pts) Write a program to perform blobcoloring. The input to your code should be a binary image and the output should be a count of total objects in the image as well as the labeled image where each object is color coded starting with the value of 1 and the background taking a value of 0. In addition, your code should also report the area and centroid of each object in the binary image.
+c. (7 Pts) Write a program to perform blobcoloring. The input to your code should be a binary image and the output should be a list of objects or regions in the image. 
+ - region_analysis/cell_counting.py:
+  - blob_coloring: write your code for blob coloring here, takes as input a binary image and returns a list of objects or regions.
+  
+ d. (5 Pts) Ignore cells smaller than 15 pixels in area and generate a report of the remaining cells (Cell Number, Area, Location). 
+  - compute_statistics: write your code for computing the statistics of each object/region, i.e area and location(centroid) here.
+  Print out the statistics to stdout. region number, area and centroid for each region. 
+  - mark_regions_image: write your code to create a final cell labeled image. The final image should include an astrix representing the centroid of each cell and two numbers, one representing its Cell Number and another its area.
+ 
 
 
 
