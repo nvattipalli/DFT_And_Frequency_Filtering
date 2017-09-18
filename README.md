@@ -1,6 +1,6 @@
 # Digital Image Processing 
 Assignment #1
-Due: 10/03/17
+Due: 10/03/17 11:59 PM
 
 1. Resampling:
 
