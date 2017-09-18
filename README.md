@@ -16,6 +16,7 @@ Due: 10/03/17
        - scalex, scaley: scale to resize the image (eg. fx 0.5, fy 0.5 to make it half the original size)
        - method: "nearest_neightbor" or "bilinear" 
   - Please make sure your code runs when you run the above command from prompt
+  - Any output images or files must be saved to "output/" folder
 -------------
 2. Region Counting:
 
@@ -26,11 +27,13 @@ Due: 10/03/17
      - find_optimal_threshold: Write your code to compute the optimal threshold assuming
      - binarize: write your code to threshold the input image to create a binary image here. This function should return a binary image which will automatically be saved in output folder  
  - Describe your method and findings in the report.md file
+ - Any output images or files must be saved to "output/" folder
   
  b. (7 Pts) Write a program to perform blobcoloring. The input to your code should be a binary image and the output should be a list of objects or regions in the image. 
  - region_analysis/cell_counting.py:
      - blob_coloring: write your code for blob coloring here, takes as input a binary image and returns a list of objects or regions.
  - Describe your method and findings in the report.md fil
+ - Any output images or files must be saved to "output/" folder
   
  c. (5 Pts) Ignore cells smaller than 15 pixels in area and generate a report of the remaining cells (Cell Number, Area, Location)
  - region_analysis/cell_counting.py:
@@ -40,6 +43,7 @@ Due: 10/03/17
        - image-name: name of the image    
   - Please make sure your code runs when you run the above command from prompt
   - Describe your method and findings in the report.md file
+  - Any output images or files must be saved to "output/" folder
   
   ![Alt text](result.png?raw=true "Sample output")
   
