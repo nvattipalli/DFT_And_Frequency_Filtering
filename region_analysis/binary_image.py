@@ -19,7 +19,7 @@ class binary_image:
         hist: a bimodal histogram
         returns: an optimal threshold value"""
 
-        threshold = int(255/2)
+        threshold = 0
 
 
         return threshold
