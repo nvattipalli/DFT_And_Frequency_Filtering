@@ -44,7 +44,7 @@ Due: 10/03/17
   ![Alt text](result.png?raw=true "Sample output")
   
 ----------------------
-3. (2 Pts.) Implement and report you findings in report.md
+3. (2 Pts.) Describe your method and report you findings in report.md
 
 ----------------------
 Two images are provided for testing: cells.png and cell2.jpg
