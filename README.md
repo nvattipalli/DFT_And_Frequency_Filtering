@@ -45,12 +45,14 @@ Due: 10/03/17
 Two images are provided for testing: cells.png and cell2.jpg
   
 PS. Files not to be changed: requirements.txt and .circleci directory
-If you do not like the structure, you are welcome to change the over all code. 
-However under two stipulations:
+
+If you do not like the structure, you are welcome to change the over all code. However under two stipulations:
+
 1. the first part has to run using command
  ./dip_hw1_resize.py -i image-name -fx scalex -fy scaley -m method
   and the second part using
   ./dip_hw1_region_analysis.py -i image-name  
+  
 2. Any output file or image should be written to output/ folder
 
 The TA will only be able to see your results if these two conditions are met
