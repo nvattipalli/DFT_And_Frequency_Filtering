@@ -49,7 +49,7 @@ jobs:
             python dip_hw1_resize.py -i cells.png -fx 0.75 -fy 0.75 -m nearest_neighbor > output/resize/2/ouput1.txt
             python dip_hw1_resize.py -i cells.png -fx 0.5 -fy 0.5 -m bilinear > output/resize/2/ouput2.txt
             python dip_hw1_region_analysis.py -i cell2.jpg > output/cellct/1/ouput.txt
-            python dip_hw1_region_analysis.py -i cells.png  > output/cellct/1/ouput.txt
+            python dip_hw1_region_analysis.py -i cells.png  > output/cellct/2/ouput.txt
             mkdir /home/circleci/repo/test-reports
             mv -f \output/ /home/circleci/repo/test-reports
 
