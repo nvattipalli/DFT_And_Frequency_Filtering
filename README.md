@@ -64,6 +64,7 @@ If you do not like the structure, you are welcome to change the over all code, u
 1. the first part has to run using command
 
  ./dip_hw1_resize.py -i image-name -fx scalex -fy scaley -m method
+ 
   and the second part using
   
   ./dip_hw1_region_analysis.py -i image-name  
