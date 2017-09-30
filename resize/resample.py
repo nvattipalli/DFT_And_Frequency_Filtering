@@ -1,3 +1,9 @@
+import cv2
+import math
+import numpy as np
+from math import floor
+from dip_hw1_region_analysis import display_image
+from matplotlib import pyplot as plt
 class resample:
 
     def resize(self, image, fx = None, fy = None, interpolation = None):
@@ -15,16 +21,20 @@ class resample:
         elif interpolation == 'nearest_neighbor':
             return self.nearest_neighbor(image, fx, fy)
 
+    img = cv2.imread('result.png', 0)
+
     def nearest_neighbor(self, image, fx, fy):
-        """resizes an image using bilinear interpolation approximation for resampling
-        image: the image to be resampled
-        fx: scale along x direction (eg. 0.5, 1.5, 2.5)
-        fx: scale along y direction (eg. 0.5, 1.5, 2.5)
-        returns a resized image based on the nearest neighbor interpolation method
-        """
+        (rows, cols) = image.shape
+        nrow = round(rows * fx)
+        ncol = round(cols * fy)
 
-        #Write your code for nearest neighbor interpolation here
+        temp = np.zeros((nrow, ncol))
 
+        for i in range(nrow):
+            for j in range(ncol):
+                temp[i, j] = image[floor(i / fx), floor(j / fy)]
+
+        image = temp
         return image
 
 
