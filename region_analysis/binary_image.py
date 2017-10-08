@@ -23,29 +23,34 @@ class binary_image:
         returns: an optimal threshold value"""
 
         threshold = 0
-        c = 0
-        ex1 = [0] * 256
-        ex2 = [0] * 256
-        for i in range(256):
-            c += hist[i]
-        threshold = c / 2
-        for j in range(2):
-            for i in range(256):
-                if hist[i] < threshold:
-                    ex1[j] += ((i + 1) * hist[i]) / c
-                if hist[i] >= threshold:
-                    ex2[j] += ((i + 1) * hist[i]) / c
-            threshold = (ex1[j] + ex2[j]) / 2
-            while (ex1[j - 1] - ex1[j]) != 0 and (ex2[j - 1] - ex2[j] != 0):
-                j = j + 1
-                for i in range(256):
-                    if hist[i] < threshold:
-                        ex1[j] += ((i + 1) * hist[i]) / c
-                    if hist[i] >= threshold:
-                        ex2[j] += ((i + 1) * hist[i]) / c
-                threshold = (ex1[j] + ex2[j]) / 2
-            return threshold
 
+        maxIntensity = len(hist) - 1
+        threshold = int(maxIntensity / 2)
+        changeInThreshold = maxIntensity
+        while True:
+            if (changeInThreshold < 1):
+                break
+            sum1 = 0
+            mean1 = 0
+            for i in range(0, threshold):
+                sum1 = sum1 + hist[i]
+
+            for i in range(0, threshold):
+                mean1 = mean1 + (i + 1) * (hist[i] / sum1)
+
+
+            sum2 = 0
+            mean2 = 0
+            for i in range(threshold, maxIntensity - 1):
+                sum2 = sum2 + hist[i]
+
+            for i in range(threshold, maxIntensity - 1):
+                mean2 = mean2 + (i + 1) * (hist[i] / sum2)
+
+            newThreshold = int((mean1 + mean2) / 2)
+            changeInThreshold = newThreshold - threshold
+            threshold = newThreshold
+        return threshold
 
 
     def binarize(self, image):
@@ -53,17 +58,19 @@ class binary_image:
         take as input
         image: an grey scale image
         returns: a binary image"""
-        hist = self.compute_histogram(image)
-        threshold = self.find_optimal_threshold(hist)
-
-        rows, cols = image.shape
-        for i in range(rows):
-            for j in range(cols):
-                if image[i, j] <= threshold:
-                    image[i, j] = 255
-                else:
-                    image[i, j] = 0
         bin_img = image.copy()
+        hist = self.compute_histogram(bin_img)
+        threshold = self.find_optimal_threshold(hist)
+        (row, col) = image.shape
+        # hist = [0] * 256
+
+        for i in range(0, row - 1):
+            for j in range(0, col - 1):
+                if (image[i][j] < threshold):
+                    bin_img[i][j] = 255
+                else:
+                    bin_img[i][j] = 0
+
         return bin_img
 
 

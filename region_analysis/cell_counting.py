@@ -32,4 +32,3 @@ class cell_counting:
         returns: image marked with center and area"""
 
         return image
-
