@@ -16,3 +16,16 @@ I = I1(x2 - x)/(x2 – x1) + I2(x – x1)/(x2 – x1)
 
 * Since I have calculated the Linear Interpolation in bilinear_interpolation function itself, I have not used the interpolation.py file.
 
+2. binary_image
+a)There are three subtasks here – computing histogram, finding optimal threshold and then binarizing the image
+i) To compute the histogram I have found out the frequency of each pixel value between 0 and 255
+
+ii) finding optimal threshold
+I have taken the threshold value as the middle value of intensity which is equal to 127 and divided the entire range into two parts. For the first set, I have calculated the expected mean value and followed the same steps to find out the expected mean of the second set.
+I have taken the average of mean1 and mean2 which is the new threshold.
+I then calculated the change in threshold and then followed the above steps till the change in threshold reaches to zero which is the optimal threshold
+
+iii) binarizing the image
+Based on the optimal threshold value, I have set the pixel values of all the pixels greater than the threshold value to zero and rest of the pixel values to 255
+
+

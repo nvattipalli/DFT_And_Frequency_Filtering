@@ -64,13 +64,11 @@ class binary_image:
         (row, col) = image.shape
         # hist = [0] * 256
 
-        for i in range(0, row - 1):
-            for j in range(0, col - 1):
+        for i in range(0, row):
+            for j in range(0, col):
                 if (image[i][j] < threshold):
                     bin_img[i][j] = 255
                 else:
                     bin_img[i][j] = 0
 
         return bin_img
-
-
