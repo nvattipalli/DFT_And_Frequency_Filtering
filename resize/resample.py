@@ -28,17 +28,17 @@ class resample:
         """
 
         #Write your code for nearest neighbor interpolation here
-        (rows, cols) = image.shape
+        (width, height) = image.shape
         fx = float(fx)
         fy = float(fy)
 
-        newimage = np.ones((int(fx * rows), int(fy * cols)), np.uint8) * 255
+        newimage_nearest = np.ones((int(fx * width), int(fy * height)), np.uint8) * 255
 
-        for i in range(int(rows * fx)):
-            for j in range(int(cols * fy)):
-                newimage[i, j] = image[int(i / fx), int(j / fy)]
+        for i in range(int(width * fx)):
+            for j in range(int(height * fy)):
+                newimage_nearest[i, j] = image[int(i / fx), int(j / fy)]
 
-        image = newimage
+        image = newimage_nearest
 
         return image
 
@@ -52,25 +52,26 @@ class resample:
         """
 
         # Write your code for bilinear interpolation here
-        (rows, columns) = image.shape
+        (width, height) = image.shape
         fx = float(fx)
         fy = float(fy)
-        bilinear_interpolation_image = np.ones((int(fx * rows), int(fy * columns)), np.uint8) * 255
-        for i in range(int(rows * fx)):
-            for j in range(int(columns * fy)):
+        newimage_bilinear = np.zeros((int(fx * width), int(fy * height)), np.uint8) * 255
+        for i in range(int(width * fx)):
+            for j in range(int(height * fy)):
                 x_coordinate = i / fx
                 y_coordinate = j / fy
                 x = (math.floor(x_coordinate))
                 y = (math.floor(y_coordinate))
-                if ((x + 1) > rows - 1):
-                    x = rows - 2
-                if ((y + 1) > columns - 1):
-                    y = columns - 2
-                intensity1 = (x + 1 - int(x_coordinate)) * image[x + 1, y] + (int(x_coordinate) - x) * image[x, y]
-                intensity2 = (x + 1 - int(x_coordinate)) * image[x + 1, y + 1] + (int(x_coordinate) - x) * image[
-                    x, y + 1]
-                bilinear_interpolation_image[i, j] = (y + 1 - int(y_coordinate)) * intensity2 + (int(
-                    y_coordinate) - y) * intensity1
-        image = bilinear_interpolation_image
+                if ((x + 1) > width - 1):
+                    x = width - 2
+                if ((y + 1) > height - 1):
+                    y = height - 2
+                intensity1 = image[x, y] * (((x + 1) - int(x_coordinate)) / ((x + 1) - x)) + image[x + 1, y] * (
+                    (int(x_coordinate) - x) / ((x + 1) - x))
+                intensity2 = image[x, y + 1] * (((x + 1) - int(x_coordinate)) / ((x + 1) - x)) + image[x + 1, y + 1] * (
+                (int(x_coordinate) - x) / ((x + 1) - x))
+                newimage_bilinear[i, j] = (((y + 1) - int(y_coordinate)) / ((y + 1) - y)) * intensity1 + ((int(
+                    y_coordinate) - y) / ((y + 1) - y)) * intensity2
+        image = newimage_bilinear
 
         return image
