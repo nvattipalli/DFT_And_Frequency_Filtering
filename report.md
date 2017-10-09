@@ -22,9 +22,9 @@ a)There are three subtasks here – computing histogram, finding optimal threshold
 i) To compute the histogram I have found out the frequency of each pixel value between 0 and 255
 
 ii) finding optimal threshold
-I have taken the threshold value as the middle value of intensity which is equal to 127 and divided the entire range into two parts. For the first set, I have calculated the expected mean value and followed the same steps to find out the expected mean of the second set.
-I have taken the average of mean1 and mean2 which is the new threshold.
-I then calculated the change in threshold and then followed the above steps till the change in threshold reaches to zero which is the optimal threshold
+* I have taken the threshold value as the middle value of intensity which is equal to 127 and divided the entire range into two parts. For the first set, I have calculated the expected mean value and followed the same steps to find out the expected mean of the second set.
+* I have taken the average of mean1 and mean2 which is the new threshold.
+* I then calculated the change in threshold and then followed the above steps till the change in threshold reaches to zero which is the optimal threshold.
 
 iii) binarizing the image
 Based on the optimal threshold value, I have set the pixel values of all the pixels greater than the threshold value to zero and rest of the pixel values to 255
@@ -33,8 +33,6 @@ b) Blob coloring
 I have used the blob coloring algorithm mentioned in your slides and found out the regions by scanning the image left to right and top to bottom. Since the first row and the first column do not have the adjacent pixels, I have written a special case to handle them. I have created a dictionary to store the list of regions and returned those values to compute the statistics.
 
 c) I have computed the statistics which includes the region number, area and centroid of each region whose area is greater than 15. I have returned an image which prints all the required statistics. 
-* I have calculated the area of centroid by taking the average of x co-ordinate and y co-ordinate values
+* I have calculated the value of centroid by taking the average of x co-ordinate and y co-ordinate values
 * Calculated the area which is the length of key values in the dictionary
-
-
 
