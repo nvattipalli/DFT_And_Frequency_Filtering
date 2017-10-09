@@ -28,4 +28,10 @@ I then calculated the change in threshold and then followed the above steps till
 iii) binarizing the image
 Based on the optimal threshold value, I have set the pixel values of all the pixels greater than the threshold value to zero and rest of the pixel values to 255
 
+b) Blob coloring
+I have used the blob coloring algorithm mentioned in your slides and found out the regions by scanning the image left to right and top to bottom. Since the first row and the first column do not have the adjacent pixels, I have written a special case to handle them. I have created a dictionary to store the list of regions and returned those values to compute the statistics.
+
+c) I have computed the statistics which includes the region number, area and centroid of each region whose area is greater than 15. I have returned an image which prints all the required statistics. 
+
+
 
