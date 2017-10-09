@@ -1,3 +1,4 @@
+Assignment 1 Report
 1. Resampling
 I have used only the resample.py file for writing the logics for both Nearest Neighbor and Bilinear Interpolation. For finding out Bilinear interpolation, I had to find the linear interpolation thrice which I did it in bilinear_interpolation function itself and hence did not use interpolation.py file.
 a) Nearest Neighbor
@@ -32,6 +33,8 @@ b) Blob coloring
 I have used the blob coloring algorithm mentioned in your slides and found out the regions by scanning the image left to right and top to bottom. Since the first row and the first column do not have the adjacent pixels, I have written a special case to handle them. I have created a dictionary to store the list of regions and returned those values to compute the statistics.
 
 c) I have computed the statistics which includes the region number, area and centroid of each region whose area is greater than 15. I have returned an image which prints all the required statistics. 
+* I have calculated the area of centroid by taking the average of x co-ordinate and y co-ordinate values
+* Calculated the area which is the length of key values in the dictionary
 
 
 

@@ -109,8 +109,8 @@ class cell_counting:
                         else:
                             r1[i, j] = 255
 
-
-        print(computeStats)
+        for i in range(2, count+1):
+            print(i, computeStats[i])
 
         return r1, computeStats
 
